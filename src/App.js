@@ -2,12 +2,25 @@
 import './App.css';
 import avatar from './dummy-avatar.jpg';
 import NavItem from './​components/Navitem'
-import Metrics from './​components/Metrics';
 import Categories from './​components/Categories';
 import product from './product_dummy.svg';
+import ContainerMetrics from "./​components/ContainerMetrics"
+import Table from "./​components/Table"
 
 function App() {
-  return (
+ 
+	let datosTabla = [
+		{name:"Tiger Nixon" , descriptio:"System Architect" ,price:'$320,800' ,categories: ["Category 01","Category 02","Category 03"], colors: ["Red","Blue","Green"], clase: ["text-danger","text-primary", "text-success"], stock: 245},
+		{name:"Jane Doe" , descriptio:"Full Stack developer" ,price:'$320,800' ,categories: ["Category 01","Category 02","Category 03"], colors: ["Red","Blue","Green"], clase: ["text-danger","text-primary", "text-success"] , stock: 245},
+	 ];
+
+	let dataMetrics = [
+		{titulo:"Products in Data Base", cifra: 135, color:"border-left-primary", icono:"fas fa-clipboard-list"},
+		{titulo:"Amount in products", cifra:"$546.456", color:" border-left-success", icono: "fas fa-dollar-sign "},
+		{titulo:"Users quantity", cifra:38, color:"border-left-warning", icono:"fas fa-user-check"}
+	]
+	
+	return (
     <div className="App">
     
     <head>
@@ -94,24 +107,17 @@ function App() {
 					</ul>
 
 				</nav>
-			
-
-			
+					
 				<div class="container-fluid">
 
 				
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">App Dashboard</h1>
 					</div>
-
 					
 					<div class="row">
-         
-           <Metrics />
-    
-        
-				
-					<div class="row">
+            			      <ContainerMetrics list={dataMetrics}/>
+         			<div class="row">
 					
 						<div class="col-lg-6 mb-4">
 							<div class="card shadow mb-4">
@@ -136,16 +142,50 @@ function App() {
 								</div>
 								<div class="card-body">
 									<div class="row">
-                      <Categories />
-                  
-                    
-								
+                      <Categories />						
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
         </div>
+
+			
+
+			<h1 class="h3 mb-2 text-gray-800">All the products in the Database</h1>
+					
+					<div class="card shadow mb-4">
+						<div class="card-body">
+							<div class="table-responsive">
+								
+	<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+											<th>Price</th>
+											<th>Categories</th>
+											<th>Colors</th>
+											<th>Stock</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th>Name</th>
+											<th>Description</th>
+											<th>Price</th>
+											<th>Categories</th>
+											<th>Colors</th>
+											<th>Stock</th>
+										</tr>
+									</tfoot>
+								<Table list={datosTabla} />
+								</table>
+							</div>
+						</div>
+					</div>
+
+
 			</div>
 			</div>
 

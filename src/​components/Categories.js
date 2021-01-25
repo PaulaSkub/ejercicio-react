@@ -6,13 +6,14 @@ function Categories (){
     return(
 
         totalCategories.map (category => 
-            
+        <div class="col-lg-6 mb-4">
             <div class="card bg-info text-white shadow">
                 <div class="card-body">
                     {category}
                 </div>
             
-        </div>
+            </div>
+         </div>
         )
        
         
